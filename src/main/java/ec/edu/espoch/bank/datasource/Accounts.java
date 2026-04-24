@@ -7,13 +7,18 @@ public class Accounts {
     
     public boolean deposit(Account account, float value){
         
-        float newbalance = account.getBalance()+value;
-        account.setBalance(newbalance);
+        float newBalance = account.getBalance()+value;
+        account.setBalance(newBalance);
         return true;
     }
-    public boolean withdraw(float value){
-        
-        return true;
+    public boolean withdraw(Account account, float value){
+        boolean resp = true;
+        if(account.getBalance()>value){
+        float newBalance = account.getBalance()-value;
+        account.setBalance(newBalance);   
+        resp = true;
+        }
+        return resp;
     }
     private float calculateInteres(){
         
